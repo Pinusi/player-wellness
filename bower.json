@@ -1,0 +1,21 @@
+{
+  "name": "hackday-2014",
+  "version": "0.0.0",
+  "authors": [
+    "Cecilia De Conto <deconto.cecilia@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "IN/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.6.2",
+    "popcorn-js": "~1.5.6"
+  }
+}
