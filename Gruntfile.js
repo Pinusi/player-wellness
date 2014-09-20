@@ -25,7 +25,8 @@ module.exports = function(grunt) {
           }
       },
       gruntfile: {
-          files: ['Gruntfile.js']
+          files: ['Gruntfile.js'],
+          tasks: ['default']
       },
       compass: {
           files: ['<%= cartelle.development %>/styles/{,*/}*.{scss,sass}'],
@@ -34,6 +35,10 @@ module.exports = function(grunt) {
       styles: {
           files: ['<%= cartelle.development %>/styles/{,*/}*.css'],
           tasks: ['cssmin']
+      },
+      html:{
+        files: ['<%= cartelle.development %>/{,*/}*.html'],
+        tasks: ['includes']
       },
       other:{
         files: ['<%= cartelle.development %>*.{ico,png,txt}',
@@ -73,6 +78,19 @@ module.exports = function(grunt) {
       }
     },
 
+    includes: {
+      files: {
+        src: ['<%= cartelle.development %>/*.html'], // Source files
+        dest: '<%= cartelle.distribution %>', // Destination directory
+        flatten: true,
+        cwd: '.',
+        options: {
+          silent: true,
+          banner: '<!-- Player Wellness -->'
+        }
+      }
+    },
+
     // wiredep: {
     //   target: {
     //     src: 'IN/index.html' // point to your HTML file.
@@ -88,11 +106,12 @@ module.exports = function(grunt) {
     // Make sure code styles are up to par and there are no obvious mistakes
     jshint: {
        options: {
-          // curly: true,
-          // eqeqeq: true,
-          eqnull: true,
           browser: true,
-          smarttabs: true,
+          '-W099': true,
+          '-W041': true,
+          smarttabs:true,
+          asi: true,
+          boss: true,
           globals: {
             jQuery: true
           },
@@ -168,10 +187,7 @@ module.exports = function(grunt) {
                 dest: '<%= cartelle.distribution %>',
                 src: [
                     '*.{ico,png,txt}',
-                    '{,*/}*.html',
-                    'styles/fonts/{,*/}*.*',
-                    'videos/**',
-                    'vtt/**'
+                    'styles/fonts/{,*/}*.*'
                 ]
             }]
         }
@@ -179,7 +195,7 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        beautify: true,
+        beautify: false,
         mangle: false
       },
       bower: {
@@ -209,9 +225,10 @@ module.exports = function(grunt) {
     cssmin: {
       dist: {
           files: {
-              '<%= cartelle.distribution %>/styles/main.css': [
+              '<%= cartelle.distribution %>/styles/main.min.css': [
                   '<%= cartelle.temporary %>/styles/{,*/}*.css',
-                  '<%= cartelle.development %>/styles/{,*/}*.css'
+                  '<%= cartelle.development %>/styles/{,*/}*.css',
+                  '<%= cartelle.development %>/bower_components/bootstrap/dist/css/bootstrap.min.css'
               ]
           }
       }
@@ -228,6 +245,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
         'clean',
         'jshint',
+        'includes',
         'concurrent',
         'uglify:scripts',
         'bower_concat',

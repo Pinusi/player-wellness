@@ -1,10 +1,3 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/AMA\/Desktop\/PROVA\/IN\/styles\/style\.scss}line{font-family:\000031}}
-.ciao {
-  font-size: 25px;
-}
-
-
-
 /* ////////// Global ////////// */
 
 * {
@@ -112,9 +105,14 @@ a {
 	box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
 	padding: 15px 0 0 0;
 	margin: auto;
+}
 
+.dashA{
+	display: block;
 	position: relative;
-	top: 100px;
+	display: block;
+	top: 50%;
+	margin-top: -25px;
 }
 
 .dashBtn:hover {
