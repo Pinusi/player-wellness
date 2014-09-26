@@ -1,17 +1,13 @@
 {
-  "name": "hackday-2014",
-  "version": "0.0.0",
+  "name": "player-wellness",
+  "version": "0.1.0",
   "authors": [
     "Cecilia De Conto <deconto.cecilia@gmail.com>"
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "IN/bower_components",
-    "test",
-    "tests"
+    ".jshintrc",
+    "**/*.txt"
   ],
   "dependencies": {
     "jquery": "~2.1.1",
