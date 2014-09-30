@@ -1,140 +1,347 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Wellness</title>
-	<link rel="stylesheet" type="text/css" href="styles/main.css">
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-</head>
-
-<body>
+include "dependencies/header.html"
 
 <div class="container">
+    <div class="row row-no-top">
+        <div class="content">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <a href="#"><div class="navBtn back"><div class="arrowBlueLeft"></div></div></a>
+            </div>
 
-	<div class="row row-no-top">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="pageInstruct">
+                    Hugo Lloris
+                </div>
 
-		<div class="content">
+                <div class="arrowWhiteDown"></div>
+            </div>
 
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<a href="#"><div class="backBtn"><div class="arrowBlueLeft"></div></div></a>
-			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				<div class="pageInstruct">Hugo Lloris</div>
-				<div class="arrowWhiteDown"></div>
-			</div>
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<a href="#"><div class="thfclogo right"></div></a>
-			</div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <a href="#"><div class="thfclogo right"></div></a>
+            </div>
 
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="formQuestion">	
-					<div class="formInstruct input">
-						<div class="removeFormInstruct"><div class="minusBlue"></div></div>
-						<p>Weight (KG)</p>
-					</div>
-					<form><input type="text" name="Weight" placeholder="195"></form>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="formQuestion">
-					<div class="formInstruct">
-						<div class="removeFormInstruct"><div class="minusBlue"></div></div>
-						<p>Energy<br>Levels</p>
-					</div>
-					<div class="formBtnCont"><div class="formBtn"><p>Very<br>Fresh</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Fresh</p></div></div>
-					<div class="formBtnCont"><div class="formBtn selected"><p>Normal</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>More<br>Tired Than<br>Normal</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Always<br>Tired</p></div></div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="formQuestion">	
-					<div class="formInstruct">
-						<div class="removeFormInstruct"><div class="minusBlue"></div></div>
-						<p>Sleep<br>Quality</p>
-					</div>
-					<div class="formBtnCont"><div class="formBtn"><p>Very<br>Restful</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Good</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Difficulty<br>Falling<br>Asleep</p></div></div>
-					<div class="formBtnCont"><div class="formBtn selected"><p>Restless<br>Sleep</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Insomnia</p></div></div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="formQuestion">	
-					<div class="formInstruct input">
-						<div class="removeFormInstruct"><div class="minusBlue"></div></div>
-						<p>Hours<br>of sleep</p>
-					</div>
-					<form><input type="text" name="Hours of sleep" placeholder="8"></form>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="formQuestion">	
-					<div class="formInstruct">
-						<div class="removeFormInstruct"><div class="minusBlue"></div></div>
-						<p>Muscle<br>Soreness</p>
-					</div>
-					<div class="formBtnCont"><div class="formBtn selected"><p>Feeling<br>Great</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Feeling<br>Good</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Normal</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Increase<br>In Soreness</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Very<br>Sore</p></div></div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="formQuestion">	
-					<div class="formInstruct">
-						<div class="removeFormInstruct"><div class="minusBlue"></div></div>
-						<p>Stress<br>Levels</p>
-					</div>
-					<div class="formBtnCont"><div class="formBtn"><p>Very<br>Relaxed</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Relaxed</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Normal</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Feeling<br>Stressed</p></div></div>
-					<div class="formBtnCont"><div class="formBtn selected"><p>Highly<br>Stressed</p></div></div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="formQuestion">	
-					<div class="formInstruct">
-						<div class="removeFormInstruct"><div class="minusBlue"></div></div>
-						<p>Mood</p>
-					</div>
-					<div class="formBtnCont"><div class="formBtn"><p>Very<br>Positive<br>Mood</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Good<br>Mood</p></div></div>
-					<div class="formBtnCont"><div class="formBtn selected"><p>Lack of<br>Interest</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Irritated</p></div></div>
-					<div class="formBtnCont"><div class="formBtn"><p>Annoyed/<br>Irritable/<br>Down</p></div></div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="formQuestion">	
-					<div class="formInstruct">
-						<div class="removeFormInstruct"><div class="minusBlue"></div></div>
-						<p>Illness In<br>Houshold</p>
-					</div>
-					<div class="formBtnCont"><div class="formBtn"><p>Yes</p></div></div>
-					<div class="formBtnCont"><div class="formBtn selected"><p>No</p></div></div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="formQuestion">	
-					<div class="formInstruct">
-						<div class="removeFormInstruct plus"><div class="plusBlue"></div></div>
-					</div>
-				</div>
-			</div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="formQuestion">
+                    <div class="formInstruct input">
+                        <div class="removeFormInstruct">
+                            <div class="minusBlue"></div>
+                        </div>
 
-			<div class="col-xs-3 col-xs-offset-9 col-sm-3 col-sm-offset-9 col-md-3 col-dm-offset-9 col-lg-3 col-lg-offset-9">
-				<a href="#"><div class="submitBtn right"><div class="arrowBlueRight"></div></div></a>
-			</div>
-		</div>
-		
-	</div>
+                        <p>Weight (KG)</p>
+                    </div>
+
+                    <form>
+                        <input name="Weight" placeholder="195" type="text">
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="formQuestion">
+                    <div class="formInstruct">
+                        <div class="removeFormInstruct">
+                            <div class="minusBlue"></div>
+                        </div>
+
+                        <!-- <p>Energy<br>Levels</p> -->
+                        <input name="Question" placeholder="Energy Levels" type="text"> 
+                    </div>
+
+                    <div class="formBtnCont">
+                        <!-- <div class="formBtn"><p>Very<br>Fresh</p></div> -->
+                        <input name="Answer" placeholder="Very Fresh" type="text">
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Fresh</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn selected">
+                            <p>Normal</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>More<br>
+                            Tired Than<br>
+                            Normal</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Always<br>
+                            Tired</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="formQuestion">
+                    <div class="formInstruct">
+                        <div class="removeFormInstruct">
+                            <div class="minusBlue"></div>
+                        </div>
+
+                        <p>Sleep<br>
+                        Quality</p>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Very<br>
+                            Restful</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Good</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Difficulty<br>
+                            Falling<br>
+                            Asleep</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn selected">
+                            <p>Restless<br>
+                            Sleep</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Insomnia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="formQuestion">
+                    <div class="formInstruct input">
+                        <div class="removeFormInstruct">
+                            <div class="minusBlue"></div>
+                        </div>
+
+                        <p>Hours<br>
+                        of sleep</p>
+                    </div>
+
+                    <form>
+                        <input name="Hours of sleep" placeholder="8" type=
+                        "text">
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="formQuestion">
+                    <div class="formInstruct">
+                        <div class="removeFormInstruct">
+                            <div class="minusBlue"></div>
+                        </div>
+
+                        <p>Muscle<br>
+                        Soreness</p>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn selected">
+                            <p>Feeling<br>
+                            Great</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Feeling<br>
+                            Good</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Normal</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Increase<br>
+                            In Soreness</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Very<br>
+                            Sore</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="formQuestion">
+                    <div class="formInstruct">
+                        <div class="removeFormInstruct">
+                            <div class="minusBlue"></div>
+                        </div>
+
+                        <p>Stress<br>
+                        Levels</p>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Very<br>
+                            Relaxed</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Relaxed</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Normal</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Feeling<br>
+                            Stressed</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn selected">
+                            <p>Highly<br>
+                            Stressed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="formQuestion">
+                    <div class="formInstruct">
+                        <div class="removeFormInstruct">
+                            <div class="minusBlue"></div>
+                        </div>
+
+                        <p>Mood</p>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Very<br>
+                            Positive<br>
+                            Mood</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Good<br>
+                            Mood</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn selected">
+                            <p>Lack of<br>
+                            Interest</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Irritated</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <p>Annoyed/<br>
+                            Irritable/<br>
+                            Down</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="formQuestion">
+                    <div class="formInstruct">
+                        <div class="removeFormInstruct">
+                            <div class="minusBlue"></div>
+                        </div>
+
+                        <p>Illness In<br>
+                        Houshold</p>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <div class="crossWhite"></div>
+
+                            <p>Yes</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn">
+                            <div class="crossWhite"></div>
+
+                            <p>No</p>
+                        </div>
+                    </div>
+
+                    <div class="formBtnCont">
+                        <div class="formBtn addAnswer">
+                            <div class="removeFormInstruct addAnswer">
+                                <div class="plusBlue"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="formQuestion">
+                    <div class="formInstruct">
+                        <div class="removeFormInstruct addQuestion">
+                            <div class="plusBlue"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class=
+            "col-xs-3 col-xs-offset-9 col-sm-3 col-sm-offset-9 col-md-3 col-dm-offset-9 col-lg-3 col-lg-offset-9">
+            <a href="#">
+                <div class="submitBtn right">
+                    <div class="arrowBlueRight"></div>
+                </div></a>
+            </div>
+        </div>
+    </div>
 </div>
 
-</body>
-</html>
+include "dependencies/footer.html"
