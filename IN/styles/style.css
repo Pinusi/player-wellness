@@ -30,37 +30,39 @@ a {
 	position: fixed;
 }
 
-.backBtn {
+.navBtn {
 	border-radius: 50%;
 	background-color: #fff;
 	height: 70px;
 	width: 70px;
 	padding: 26px 0 0 0;
+}
+
+.navBtn:hover{
+	background-color: #ffea00;
+}
+
+.navBtn:active{
+	background-color: #ffea00;
+}
+
+.navBtn.back {
 	float: left;
 }
 
-.backBtn:hover{
-	background-color: #ffea00;
+.navBtn.grid {
+	float: right;
 }
 
-.backBtn:active{
-	background-color: #ffea00;
-}
+.navBtn.live {
+	color: #27365d;
+	font-size: 1.5em;
+	letter-spacing: 1px;
+	text-align: center;
+	padding: 15px 0 0;
 
-.gridBtn {
-	border-radius: 50%;
-	background-color: #fff;
-	height: 70px;
-	width: 70px;
-	padding: 26px 0 0 0;
-}
-
-.gridBtn:hover{
-	background-color: #ffea00;
-}
-
-.gridBtn:active{
-	background-color: #ffea00;
+	float: right;
+	margin: 0 10px;
 }
 
 .pageInstruct {
@@ -100,7 +102,7 @@ a {
 .popUp {
 	width: 380px;
 	border-radius: 10px;
-	border: 1px solid rgba(255, 255, 255, .1);
+	border: 2px solid rgba(255, 255, 255, .1);
 	background-color: rgba(36, 53, 93, .98);
 	padding: 20px;
 	position: fixed;
@@ -134,7 +136,7 @@ a {
 
 .popUpPlayerCircle {
 	border-radius: 50%;
-	border: 1px solid rgba(255,255,255, 0.1);
+	border: 2px solid rgba(255,255,255, 0.1);
 	height: 125px;
 	width: 125px;
 	margin: 0 auto 20px auto;
@@ -158,10 +160,6 @@ a {
 	outline: none;
 }
 
-.popUp.incorrect input {
-	border: 2px solid rgba(185, 57, 57, 1)
-}
-
 .popUpBtn {
 	width: 100%;
 	height: 50px;
@@ -179,9 +177,91 @@ a {
 	background-color: #ffea00;
 }
 
+.popUp.incorrect input {
+	border: 2px solid rgba(185, 57, 57, 1);
+}
+
+.popUp.notComplete {
+	border: 2px solid rgba(134, 41, 41, 1);
+	background-color: rgba(185,57,57, .98);
+}
+
 @media only screen and (max-width:400px) {
 	.popUp {
 		width: 90%;
+	}
+}
+
+
+
+/* ////////// Site ////////// */
+
+.siteCont {
+	width: 50%;
+	float: left;
+	height: 250px;
+	border-right: 1px solid rgba(255,255,255,.1);
+
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.siteCont:last-child {
+	border-right: none;
+}
+
+.siteCont p {
+	font-size: 4em;
+	color: #fff;
+	letter-spacing: -1px;
+	text-align: center;
+
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.mastheadHide {
+	display: none;
+}
+
+.popUp.site {
+	padding: 30px 20px 20px 20px;
+	border: none;
+	background: none;
+}
+
+.popUp.site input {
+	width: 100%;
+	text-align: left;
+	padding: 0 0 0 15px;
+	margin: 0 0 5px 0;
+}
+
+.popUp.site input:last-child {
+	margin: 0;
+}
+
+@media only screen and (max-width:800px) {
+
+	.siteCont {
+		width: 100%;
+		height: 280px;
+		border: none;
+	}
+
+	.siteCont:first-child {
+		display: none;
+	}
+
+	.siteCont .mastheadHide {
+		display: block;
+		position: inherit;
+		top: 0px;
+
+		font-size: 3em;
+		letter-spacing: -1.5px;
 	}
 }
 
@@ -197,7 +277,7 @@ a {
 
 	position: relative;
 	top: 50%;
-	transform: translateY(-78%);
+	transform: translateY(-50%);
 }
 
 .dashBtnCont:last-child {
@@ -212,14 +292,10 @@ a {
 	box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
 	padding: 15px 0 0 0;
 	margin: auto;
-}
 
-.dashA{
-	display: block;
 	position: relative;
-	display: block;
 	top: 50%;
-	margin-top: -25px;
+	transform: translateY(-50%);
 }
 
 .dashBtn:hover {
@@ -232,6 +308,28 @@ a {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	text-align: center;
+}
+
+@media only screen and (max-width:800px) {
+
+	.dashBtnCont {
+		width: 100%;
+		height: auto;
+		border-right: none;
+		border-bottom: 1px solid rgba(255,255,255,.1);
+		padding: 20px 0; 
+	}
+
+	.dashBtnCont:last-child {
+		border: none;
+		margin: 0;
+	}
+
+	.dashBtn {
+		position: inherit;
+		top: inherit;
+		transform: none;
+	}
 }
 
 
@@ -267,7 +365,7 @@ a.player_login{
 
 .playerCircle {
 	border-radius: 50%;
-	border: 1px solid rgba(255,255,255, 0.1);
+	border: 2px solid rgba(255,255,255, 0.1);
 	height: 125px;
 	width: 125px;
 	margin: 35px auto 20px auto;
@@ -344,6 +442,33 @@ a.player_login{
 	width: 25%;
 	height: 100px;
 	float: left;
+	position: relative;
+}
+
+.formQuestion .formInstruct input {
+	width: 100%;
+	height: 100px;
+	color: #ffea00; 
+	font-size: .9em;
+	text-align: center;
+	padding: 0;
+	background: 0 0;
+}
+
+.formQuestion .formInstruct input::-webkit-input-placeholder {
+   color: #ffea00;
+}
+
+.formQuestion .formInstruct input:-moz-placeholder { /* Firefox 18- */
+   color: #ffea00;
+}
+
+.formQuestion .formInstruct input::-moz-placeholder {  /* Firefox 19+ */
+   color: #ffea00;
+}
+
+.formQuestion .formInstruct input:-ms-input-placeholder {  
+   color: #ffea00;
 }
 
 .formInstruct.input {
@@ -366,6 +491,32 @@ a.player_login{
 .formBtnCont {
 	width: 15%;
 	float: left;
+	position: relative;
+}
+
+.formQuestion .formBtnCont input {
+	width: 95%;
+	height: 100px;
+	font-size: .75em;
+	text-align: center;
+	padding: 0;
+	background-color: rgba(0,0,0,.1);
+}
+
+.formQuestion .formBtnCont input::-webkit-input-placeholder {
+   color: rgba(255, 255, 255, 1);
+}
+
+.formQuestion .formBtnCont input:-moz-placeholder { /* Firefox 18- */
+   color: rgba(255, 255, 255, 1);  
+}
+
+.formQuestion .formBtnCont input::-moz-placeholder {  /* Firefox 19+ */
+   color: rgba(255, 255, 255, 1);  
+}
+
+.formQuestion .formBtnCont input:-ms-input-placeholder {  
+   color: rgba(255, 255, 255, 1);  
 }
 
 .formBtn {
@@ -373,6 +524,11 @@ a.player_login{
 	height: 100px;
 	border-radius: 10px;
 	background-color: rgba(0, 0, 0, 0.1);
+	position: relative;
+}
+
+.formBtn.addAnswer {
+	background: none;
 }
 
 .formBtn.selected{
@@ -397,7 +553,13 @@ a.player_login{
 	transform: translateY(-50%);
 }
 
+.formQuestion form {
+	width: 15%;
+	float: left;
+}
+
 .formQuestion input {
+	width: 95%;
 	height: 60px;
 	float: left;
 	color: #fff;
@@ -428,10 +590,10 @@ a.player_login{
 		height: 100px;
 	}
 
-	.formInstruct p {
+    /*.formInstruct p {
 		width: 82%;
 		margin: 0 auto;
-	}
+	}*/
 	
 	.formBtnCont {
 		width: 33.3%;
@@ -509,14 +671,21 @@ a.player_login{
 	width: 30px;
 	float: left;
 
-	position: relative;
+	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	z-index: 1000;
 }
 
-.removeFormInstruct.plus {
+.removeFormInstruct.addQuestion {
 	background-color: #fff;
+}
+
+.removeFormInstruct.addAnswer {
+	background-color: #fff;
+	position: relative;
+	margin: 0 auto;
+	float: inherit;
 }
 
 
@@ -576,7 +745,7 @@ a.player_login{
 }
 
 .plusBlue {
-	height: 9px;
+	height: 10px;
 	width: 10px;
 	margin: 0 auto;
 	background-size: cover;
@@ -587,10 +756,22 @@ a.player_login{
 	transform: translateY(-50%);
 }
 
+.crossWhite {
+	height: 9px;
+	width: 9px;
+	background-size: cover;
+	background-image: url('../imgs/icons/crossWhite.png');
+	float: right;
+
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
 .playerImage {
 	height: 113px;
 	width: 113px;
-	margin: 5px auto;
+	margin: 4px auto;
 	background-size: cover;
 }
 
