@@ -112,6 +112,13 @@ a {
     transform: translateY(-50%);
 }
 
+.popOverlay{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
 .popUpInstruct {
 	font-size: 1em;
 	color: #fff;
