@@ -196,6 +196,15 @@ a {
 
 /* ////////// Site ////////// */
 
+#remember-me{
+	text-align: left;
+}
+
+#remember-me input{
+	width: auto;
+	height: auto;
+}
+
 .siteCont {
 	width: 50%;
 	float: left;
@@ -296,6 +305,10 @@ a {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
+}
+
+a.dashBtn{
+	display: block;
 }
 
 .dashBtn:hover {
@@ -455,6 +468,10 @@ a.player_login{
 	background: 0 0;
 }
 
+.formQuestion .formInstruct.input input {
+	height: 60px;
+}
+
 .formQuestion .formInstruct input::-webkit-input-placeholder {
    color: #ffea00;
 }
@@ -501,6 +518,8 @@ a.player_login{
 	text-align: center;
 	padding: 0;
 	background-color: rgba(0,0,0,.1);
+	word-break: break-word;
+	padding: 5px;
 }
 
 .formQuestion .formBtnCont input::-webkit-input-placeholder {
@@ -762,7 +781,7 @@ a.player_login{
 	background-size: cover;
 	background-image: url('../imgs/icons/crossWhite.png');
 	float: right;
-
+	cursor: pointer;
 	position: absolute;
 	right: 10px;
 	top: 10px;
