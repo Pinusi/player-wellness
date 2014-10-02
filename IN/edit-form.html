@@ -4,7 +4,7 @@ include "dependencies/header.html"
     <div class="row row-no-top">
         <div class="content">
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <a href="#"><div class="navBtn back"><div class="arrowBlueLeft"></div></div></a>
+                <a href="#" id='backtodash'><div class="navBtn back"><div class="arrowBlueLeft"></div></div></a>
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -20,17 +20,16 @@ include "dependencies/header.html"
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="formQuestion">
+                <div class="formQuestion pickquestions" data-id="key" data-type="question.type">
                     <div class="formInstruct input">
-                        <div class="removeFormInstruct">
+                        <div class="removeFormInstruct minus">
                             <div class="minusBlue"></div>
                         </div>
-
-                        <p>Weight (KG)</p>
+                        <input class='question_topick' name="Answer" type="text" value="Weight (KG)"/>
                     </div>
 
                     <form>
-                        <input name="Weight" placeholder="195" type="text">
+                        <input type="text">
                     </form>
                 </div>
             </div>
@@ -38,17 +37,17 @@ include "dependencies/header.html"
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="formQuestion">
                     <div class="formInstruct">
-                        <div class="removeFormInstruct">
+                        <div class="removeFormInstruct minus">
                             <div class="minusBlue"></div>
                         </div>
 
                         <!-- <p>Energy<br>Levels</p> -->
-                        <input name="Question" placeholder="Energy Levels" type="text"> 
+                        <input class='question_topick' name="Question" value="Energy Levels" type="text"> 
                     </div>
 
                     <div class="formBtnCont">
                         <!-- <div class="formBtn"><p>Very<br>Fresh</p></div> -->
-                        <input name="Answer" placeholder="Very Fresh" type="text">
+                        <input class='question_topick' name="Answer" value="Very Fresh" type="text">
                     </div>
 
                     <div class="formBtnCont">
@@ -299,7 +298,7 @@ include "dependencies/header.html"
 
                     <div class="formBtnCont">
                         <div class="formBtn">
-                            <div class="crossWhite"></div>
+                            <a class="crossWhiteCont"><div class="crossWhite"></div></a>
 
                             <p>Yes</p>
                         </div>
@@ -307,7 +306,7 @@ include "dependencies/header.html"
 
                     <div class="formBtnCont">
                         <div class="formBtn">
-                            <div class="crossWhite"></div>
+                            <a class="crossWhiteCont"><div class="crossWhite"></div></a>
 
                             <p>No</p>
                         </div>

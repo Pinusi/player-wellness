@@ -775,16 +775,27 @@ a.player_login{
 	transform: translateY(-50%);
 }
 
-.crossWhite {
-	height: 9px;
-	width: 9px;
-	background-size: cover;
-	background-image: url('../imgs/icons/crossWhite.png');
+.crossWhiteCont {
+	height: 20px;
+	width: 20px;
 	float: right;
 	cursor: pointer;
 	position: absolute;
 	right: 10px;
 	top: 10px;
+}
+
+
+.crossWhite {
+	height: 9px;
+	width: 9px;
+	background-size: cover;
+	background-image: url('../imgs/icons/crossWhite.png');
+	margin: auto;
+
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .playerImage {
