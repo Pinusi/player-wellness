@@ -52,17 +52,11 @@ a {
 
 .navBtn.grid {
 	float: right;
+	margin: 0 10px;
 }
 
-.navBtn.live {
-	color: #27365d;
-	font-size: 1.5em;
-	letter-spacing: 1px;
-	text-align: center;
-	padding: 15px 0 0;
-
+.navBtn.edit {
 	float: right;
-	margin: 0 10px;
 }
 
 .pageInstruct {
@@ -106,7 +100,7 @@ a {
 	background-color: rgba(36, 53, 93, .98);
 	padding: 20px;
 	position: fixed;
-	z-index: 1;
+	z-index: 200;
 	margin: auto;
 	left: 0;
     right: 0;
@@ -196,13 +190,24 @@ a {
 
 /* ////////// Site ////////// */
 
-#remember-me{
-	text-align: left;
+.popUp.site .remember {
+	color: #fff;
+	font-size: 1em;
+	font-weight: inherit;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin: 20px 0 5px 0;
+	display: inline-block;
 }
 
-#remember-me input{
+.popUp.site .checkbox {
 	width: auto;
 	height: auto;
+	margin: 0  0 0 5px;
+	display: inline-block;
+
+	position: relative;
+	top: -1px;
 }
 
 .siteCont {
@@ -246,10 +251,6 @@ a {
 	text-align: left;
 	padding: 0 0 0 15px;
 	margin: 0 0 5px 0;
-}
-
-.popUp.site input:last-child {
-	margin: 0;
 }
 
 @media only screen and (max-width:800px) {
@@ -693,7 +694,7 @@ a.player_login{
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	z-index: 1000;
+	z-index: 100;
 }
 
 .removeFormInstruct.addQuestion {
@@ -705,6 +706,59 @@ a.player_login{
 	position: relative;
 	margin: 0 auto;
 	float: inherit;
+}
+
+
+
+/* ////////// Choose Question Type Pop-up ////////// */
+
+.popUp.qType {
+	height: auto;
+}
+
+.popUpInstruct.qType {
+	margin: 10px 0 30px 0;
+}
+
+.formBtnCont.qType {
+	width: 50%;
+}
+
+
+
+/* ////////// Report Table ////////// */
+
+table {
+	color: #fff;
+	letter-spacing: 1px;
+	margin: 30px 0 0 0;
+}
+
+table .playerInfo {
+	text-align: left;
+}
+
+th {
+	width: 100px;
+	color: #ffea00;
+	font-weight: inherit;
+	padding: 0 0 0 15px;
+}
+
+tr {
+	height: 60px;
+}
+
+table .name {
+	width: 180px;
+}
+
+tbody tr:nth-child(even) {
+	background-color: rgba(255, 255, 255, .025);
+}
+
+td {
+	padding: 0 0 0 15px;
 }
 
 
@@ -746,9 +800,28 @@ a.player_login{
 .gridBlue {
 	height: 20px;
 	width: 24px;
-	margin:auto;
+	margin: auto;
 	background-size: cover;
 	background-image: url('../imgs/icons/gridBlue.png');
+}
+
+.editBlue {
+	height: 21px;
+	width: 21px;
+	margin: auto;
+	background-size: cover;
+	background-image: url('../imgs/icons/editBlue.png');
+
+	position: relative;
+	top: -1px;
+}
+
+.emailBlue {
+	height: 20px;
+	width: 29px;
+	margin: auto;
+	background-size: cover;
+	background-image: url('../imgs/icons/emailBlue.png');
 }
 
 .minusBlue {
