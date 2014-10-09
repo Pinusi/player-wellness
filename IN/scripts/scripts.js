@@ -122,7 +122,6 @@ WELLNESS.CLIENT.Main.prototype.addHomeEvents = function()
 
 WELLNESS.CLIENT.Main.prototype.addDashEvents = function(isTrainee)
 {
-	console.log(isTrainee);
 
 	var that = this;
 
@@ -142,7 +141,6 @@ WELLNESS.CLIENT.Main.prototype.addDashEvents = function(isTrainee)
 		        type: 'GET', 
 		        data: {refresh: true},
 		        success: function (player_list) {
-		        	console.log(player_list);
 		        	//loop through players
 		        	for (var k = 0; k < player_list.length; k++) {
 		        		var current_player = player_list[k];
@@ -215,13 +213,11 @@ WELLNESS.CLIENT.Main.prototype.addDashEvents = function(isTrainee)
 		        	else if( result.type === 'invalid-password')
 		        	{
 		        		//incorrect password
-		        		console.log('fuck');
 		        		$('#playerpop').find('.popUp').addClass('incorrect');
 		        	}
 		        	else
 		        	{
 		        		//player o utente non trovato
-		        		console.log('fuck_2');
 		        		$('#playerpop').find('.popUp').addClass('incorrect');
 		        	}
 		        }
@@ -428,6 +424,12 @@ WELLNESS.CLIENT.Main.prototype.addEditEvents = function()
 		$('#questiontype').show();
 	});
 
+	$(".popOverlay").on('click',function(e){
+		var $box = $('.popUp');
+	   	if(!$box.is(e.target) && $box.has(e.target).length === 0)
+	      	$( this ).hide();
+	});
+
 	//remove option in MP
 	$('.crossWhite').on('click',function(){
 		$( this ).parents('.formBtnCont').remove();
@@ -471,6 +473,15 @@ WELLNESS.CLIENT.Main.prototype.addEditEvents = function()
 		new_question += '</div>';
 
 		$('#plusbutton').before(new_question);
+
+		$('.pickquestions[data-id="q_'+that.q_last+'"]').find('.removeFormInstruct.minus').on('click',function(){
+			var id = $( this ).parents('.formQuestion').attr('data-id');
+			if(that.data[id])
+			{
+				that.data[id].on = false;
+			}
+			$( this ).parents('.col-xs-12.col-sm-12.col-md-12.col-lg-12').remove();
+		});
 	});
 
 	//multiple choice
@@ -658,8 +669,10 @@ WELLNESS.CLIENT.Main.prototype.addReportEvents = function()
 	        		if(key != 'questions')
 	        		{
 	        			table += '<tr>';
-	        			table += 	'<td>' + key;
-	        			table += 	'</td>';
+	        			table += 	'<td class="name"><div class="playerInfo">';
+	        			table += 		'<span class="playerNo">' + key.substr(0, key.indexOf("-")-1) + '</span>';
+	        			table += 		'<span>' + key.substr(key.indexOf("-")+1) + '</span>';
+	        			table += 	'</div></td>';
 	        			for( var d = 0; d < answer.length; d++ )
 	        			{
 	        				table += '<td>' + answer[d];
@@ -673,4 +686,4 @@ WELLNESS.CLIENT.Main.prototype.addReportEvents = function()
 	        }
 	    });
 	}, 15000);
-}	
+}
