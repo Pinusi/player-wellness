@@ -37,32 +37,43 @@ WELLNESS.CLIENT.Main.prototype.addEvents = function(url,data)
 
 WELLNESS.CLIENT.Main.prototype.addLoginEvents = function()
 {
+	var that = this;
 	$('#login').click(function() { 
-
-	    var user = $('#user').val();
-	    var pass = $('#pass').val();
-	    var remember = $('#remember-me input').is(':checked');
-	    $.ajax({
-	        url: '/',
-	        type: 'POST',
-	        data: {user:user, pass: pass, remember: remember}, // An object with the key 'submit' and value 'true;
-	        success: function (result) {
-	        	if( result.type === 'perfect' )
-	        	{
-	        		//va alla dashboard e fa sparire le faccie
-	        		var protocol = window.location.protocol != '' ? window.location.protocol + "//" : '';
-	        		var host = window.location.host != '' ? window.location.host + "/" : '';
-	        		window.location.href = protocol + host + result.redirect;
-	        	}
-	        	else
-	        	{
-	        		//player o utente non trovato
-	        		$('#login-container').addClass('incorrect');
-	        	}
-	        }
-	    });  
-
+	    that.appLogin();
 	});
+
+	$('#pass').keypress(function(e){
+        if(e.which == 13){//Enter key pressed
+        	that.appLogin();
+        }
+    });
+}
+
+WELLNESS.CLIENT.Main.prototype.appLogin = function()
+{
+
+	var user = $('#user').val();
+    var pass = $('#pass').val();
+    var remember = $('#remember-me input').is(':checked');
+    $.ajax({
+        url: '/',
+        type: 'POST',
+        data: {user:user, pass: pass, remember: remember}, // An object with the key 'submit' and value 'true;
+        success: function (result) {
+        	if( result.type === 'perfect' )
+        	{
+        		//va alla dashboard e fa sparire le faccie
+        		var protocol = window.location.protocol != '' ? window.location.protocol + "//" : '';
+        		var host = window.location.host != '' ? window.location.host + "/" : '';
+        		window.location.href = protocol + host + result.redirect;
+        	}
+        	else
+        	{
+        		//player o utente non trovato
+        		$('#login-container').addClass('incorrect');
+        	}
+        }
+    });
 }
 
 WELLNESS.CLIENT.Main.prototype.addHomeEvents = function()
@@ -80,10 +91,31 @@ WELLNESS.CLIENT.Main.prototype.addHomeEvents = function()
 	      	$( this ).hide();
 	});
 
+	var that = this;
+
+	$('#traineepass').keypress(function(e){
+        if(e.which == 13){
+        //Enter key pressed
+        	that.operatorLogin();
+        }
+    });
+
 	//login for trainee
 	$('#traineelogin').click(function() { 
+	    that.operatorLogin(); 
+	});
 
-	    // var user = $('#traineeuser').val();
+	//i player vanno alla dashboard
+	$('#playerdash').click(function() {
+		var protocol = window.location.protocol != '' ? window.location.protocol + "//" : '';
+		var host = window.location.host != '' ? window.location.host + "/" : '';
+		window.location.href = protocol + host + "dashboard";
+	});
+}
+
+WELLNESS.CLIENT.Main.prototype.operatorLogin = function()
+{
+	// var user = $('#traineeuser').val();
 	    var pass = $('#traineepass').val();
 	    $.ajax({
 	        url: '/home',
@@ -109,15 +141,6 @@ WELLNESS.CLIENT.Main.prototype.addHomeEvents = function()
 	        	}
 	        }
 	    });  
-
-	});
-
-	//i player vanno alla dashboard
-	$('#playerdash').click(function() {
-		var protocol = window.location.protocol != '' ? window.location.protocol + "//" : '';
-		var host = window.location.host != '' ? window.location.host + "/" : '';
-		window.location.href = protocol + host + "dashboard";
-	});
 }
 
 WELLNESS.CLIENT.Main.prototype.addDashEvents = function(isTrainee)
@@ -193,38 +216,62 @@ WELLNESS.CLIENT.Main.prototype.addDashEvents = function(isTrainee)
 		      	$( this ).hide();
 		});
 
+		
 		//player login
 		$('#playerlogin').click(function() { 
-
-		    var user = $('#playerpop').attr('data-user');
-		    var pass = $('#playerday').val() + '-' + $('#playermonth').val() + '-' + $('#playeryear').val();
-		    $.ajax({
-		        url: '/dashboard',
-		        type: 'POST',
-		        data: {user: user, pass: pass}, // An object with the key 'submit' and value 'true;
-		        success: function (result) {
-		        	if( result.type === 'player' )
-		        	{
-		        		//va al playerform
-		        		var protocol = window.location.protocol != '' ? window.location.protocol + "//" : '';
-		        		var host = window.location.host != '' ? window.location.host + "/" : '';
-		        		window.location.href = protocol + host + result.redirect;
-		        	}
-		        	else if( result.type === 'invalid-password')
-		        	{
-		        		//incorrect password
-		        		$('#playerpop').find('.popUp').addClass('incorrect');
-		        	}
-		        	else
-		        	{
-		        		//player o utente non trovato
-		        		$('#playerpop').find('.popUp').addClass('incorrect');
-		        	}
-		        }
-		    });  
+			that.playerLogin(); 
 
 		});
+
+		$('#playerday').keypress(function(e){
+	        if(e.which == 13){
+	        //Enter key pressed
+	        	that.playerLogin();
+	        }
+	    });
+	    $('#playermonth').keypress(function(e){
+	        if(e.which == 13){
+	        //Enter key pressed
+	        	that.playerLogin();
+	        }
+	    });
+	    $('#playeryear').keypress(function(e){
+	        if(e.which == 13){
+	        //Enter key pressed
+	        	that.playerLogin();
+	        }
+	    });
 	}
+}
+
+WELLNESS.CLIENT.Main.prototype.playerLogin = function()
+{
+	var user = $('#playerpop').attr('data-user');
+    var pass = $('#playerday').val() + '-' + $('#playermonth').val() + '-' + $('#playeryear').val();
+    $.ajax({
+        url: '/dashboard',
+        type: 'POST',
+        data: {user: user, pass: pass}, // An object with the key 'submit' and value 'true;
+        success: function (result) {
+        	if( result.type === 'player' )
+        	{
+        		//va al playerform
+        		var protocol = window.location.protocol != '' ? window.location.protocol + "//" : '';
+        		var host = window.location.host != '' ? window.location.host + "/" : '';
+        		window.location.href = protocol + host + result.redirect;
+        	}
+        	else if( result.type === 'invalid-password')
+        	{
+        		//incorrect password
+        		$('#playerpop').find('.popUp').addClass('incorrect');
+        	}
+        	else
+        	{
+        		//player o utente non trovato
+        		$('#playerpop').find('.popUp').addClass('incorrect');
+        	}
+        }
+    }); 
 }
 
 WELLNESS.CLIENT.Main.prototype.addFormEvents = function()
@@ -249,11 +296,26 @@ WELLNESS.CLIENT.Main.prototype.addFormEvents = function()
 	//click on each tap button
 	$('.popupAnsw .formBtnCont').on('click',function(){
 		//togli gli altri della stessa domanda
-		$( this ).siblings().find('.formBtn').removeClass('selected');
-		//aggiugngi la classe selected
-		$( this ).find('.formBtn').addClass('selected');
-		//salva in data-answer
-		$( this ).parents('.popupAnsw').attr("data-answer",$( this ).find('p').html());
+		// $( this ).siblings().find('.formBtn').removeClass('selected');
+		// //aggiugngi la classe selected
+		// $( this ).find('.formBtn').addClass('selected');
+		// //salva in data-answer
+		// $( this ).parents('.popupAnsw').attr("data-answer",$( this ).find('p').html());
+		if($( this ).find('.formBtn').hasClass("selected"))
+		{
+			$( this ).find('.formBtn').removeClass('selected');
+			var data_answer_temp = $( this ).parents('.popupAnsw').attr("data-answer");
+			data_answer_temp = data_answer_temp.replace($( this ).find('p').html() + " - ", "");
+			$( this ).parents('.popupAnsw').attr("data-answer", data_answer_temp);
+		}
+		else
+		{
+			$( this ).find('.formBtn').addClass('selected');
+			var data_answer_temp_add = $( this ).parents('.popupAnsw').attr("data-answer");
+			data_answer_temp_add += $( this ).find('p').html() + " - ";
+			$( this ).parents('.popupAnsw').attr("data-answer", data_answer_temp_add);
+			// $( this ).parents('.popupAnsw').attr("data-answer",$( this ).find('p').html() + " - ");
+		}
 	});
 
 	$('.tappop').on('click',function(){
@@ -336,7 +398,10 @@ WELLNESS.CLIENT.Main.prototype.addFormEvents = function()
 		    				//salva popup
 		    				$('.popOverlay[popup-data-to=' + $(this).attr('data-id') + ']').find('.popupAnsw').each(function()
 		    				{
-		    					specific[$(this).attr('data-header')] = $(this).attr('data-answer');
+		    					if($(this).attr('data-answer') && $(this).attr('data-answer') != "")
+		    					{
+		    						specific[$(this).attr('data-header')] = $(this).attr('data-answer');
+		    					}
 		    				});
 		    			}
 			    		answers.push(
@@ -437,10 +502,10 @@ WELLNESS.CLIENT.Main.prototype.addEditEvents = function()
 
 	//add option in MP
 	$('.pickquestions .removeFormInstruct.addAnswer').on('click',function(){
-		new_button = '	<a class="formBtnCont">';
-		new_button += '		<div class="crossWhite"></div>';
+		new_button = '	<div class="formBtnCont">';
+		new_button += '		<a class="crossWhiteCont"><div class="crossWhite"></div></a>';
 		new_button += '		<input class="options_topick" name="Answer" value="Option" type="text"/>';
-		new_button += '	</a>';
+		new_button += '	</div>';
 		$( this ).parents('.formBtnCont').before(new_button);
 		$( this ).parents('.formBtnCont').prev().find('.crossWhite').on('click',function(){
 			$( this ).parents('.formBtnCont').remove();
@@ -499,21 +564,21 @@ WELLNESS.CLIENT.Main.prototype.addEditEvents = function()
 		new_question += '		</div>';
 		new_question += '		<input class="question_topick" name="Answer" value="Insert Question" type="text"/>';
 		new_question += '	</div>';
-		new_question += '	<a class="formBtnCont">';
-		new_question += '		<div class="crossWhite"></div>';
-		new_question += '		<input class="options_topick" name="Answer" value="Yes" type="text"/>';
-		new_question += '	</a>';
-		new_question += '	<a class="formBtnCont">';
-		new_question += '		<div class="crossWhite"></div>';
-		new_question += '		<input class="options_topick" name="Answer" value="No" type="text"/>';
-		new_question += '	</a>';
 		new_question += '	<div class="formBtnCont">';
+		new_question += '		<a class="crossWhiteCont"><div class="crossWhite"></div></a>';
+		new_question += '		<input class="options_topick" name="Answer" value="Yes" type="text"/>';
+		new_question += '	</div>';
+		new_question += '	<div class="formBtnCont">';
+		new_question += '		<a class="crossWhiteCont"><div class="crossWhite"></div></a>';
+		new_question += '		<input class="options_topick" name="Answer" value="No" type="text"/>';
+		new_question += '	</div>';
+		new_question += '	<a class="formBtnCont">';
         new_question += '		<div class="formBtn addAnswer">';
         new_question += '			<div class="removeFormInstruct addAnswer">';
         new_question += '				<div class="plusBlue"></div>';
         new_question += '			</div>';
         new_question += '		</div>';
-        new_question += '	</div>';
+        new_question += '	</a>';
 		new_question += '</div>';
 		new_question += '</div>';
 
@@ -530,10 +595,10 @@ WELLNESS.CLIENT.Main.prototype.addEditEvents = function()
 		});
 
 		$('.pickquestions[data-id="q_'+that.q_last+'"]').find('.removeFormInstruct.addAnswer').on('click',function(){
-			new_button = '	<a class="formBtnCont">';
-			new_button += '		<div class="crossWhite"></div>';
+			new_button = '	<div class="formBtnCont">';
+			new_button += '		<a class="crossWhiteCont"><div class="crossWhite"></div></a>';
 			new_button += '		<input class="options_topick" name="Answer" value="Option" type="text"/>';
-			new_button += '	</a>';
+			new_button += '	</div>';
 			$( this ).parents('.formBtnCont').before(new_button);
 			if($( this ).parents('.pickquestions').children().length == 7)
 			{

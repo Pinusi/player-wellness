@@ -22,7 +22,7 @@ a {
 	background-color: #272a2d;
 	padding: 30px 15px 30px 15px;
 	overflow: scroll;
-	background-image: url('../imgs/bkg.png');
+	background-image: url('../imgs/bkg.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -105,6 +105,8 @@ a {
 	left: 0;
     right: 0;
     top: 50%;
+    -ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
     transform: translateY(-50%);
 }
 
@@ -136,7 +138,7 @@ a {
 	margin: 0 auto 20px auto;
 }
 
-.popUp form {
+.popUp .form {
 	text-align: center;
 	color: #fff;
 	letter-spacing: 5px;
@@ -218,7 +220,9 @@ a {
 
 	position: relative;
 	top: 50%;
-	transform: translateY(-50%);
+	-ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
 }
 
 .siteCont:last-child {
@@ -233,7 +237,9 @@ a {
 
 	position: relative;
 	top: 50%;
-	transform: translateY(-50%);
+	-ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
 }
 
 .mastheadHide {
@@ -287,7 +293,9 @@ a {
 
 	position: relative;
 	top: 50%;
-	transform: translateY(-50%);
+	-ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
 }
 
 .dashBtnCont:last-child {
@@ -305,7 +313,9 @@ a {
 
 	position: relative;
 	top: 50%;
-	transform: translateY(-50%);
+	-ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
 }
 
 a.dashBtn{
@@ -354,7 +364,7 @@ a.dashBtn{
 	padding: 30px 20px 20px 20px;
 }
 
-.popUp.login form {
+.popUp.login .form {
 	margin-top: 30px;
 }
 
@@ -374,7 +384,6 @@ a.dashBtn{
 
 a.player_login{
 	display: block;
-	cursor: pointer;
 }
 
 .playerCircle {
@@ -430,7 +439,7 @@ a.player_login{
 	margin-top: 40px;
 }
 
-.popUp.dob form {
+.popUp.dob .form {
 	margin-top: 20px;
 }
 
@@ -469,10 +478,6 @@ a.player_login{
 	background: 0 0;
 }
 
-.formQuestion .formInstruct.input input {
-	height: 60px;
-}
-
 .formQuestion .formInstruct input::-webkit-input-placeholder {
    color: #ffea00;
 }
@@ -493,6 +498,10 @@ a.player_login{
 	height: 60px;
 }
 
+.formInstruct.input input {
+	height: 60px;
+}
+
 .formInstruct p {
 	color: #ffea00;
 	font-size: 0.9em;
@@ -503,7 +512,9 @@ a.player_login{
 
 	position: relative;
 	top: 50%;
-	transform: translateY(-50%);
+	-ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
 }
 
 .formBtnCont {
@@ -570,10 +581,12 @@ a.player_login{
 
 	position: relative;
 	top: 50%;
-	transform: translateY(-50%);
+	-ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
 }
 
-.formQuestion form {
+.formQuestion .form {
 	width: 15%;
 	float: left;
 }
@@ -610,6 +623,10 @@ a.player_login{
 		height: 100px;
 	}
 
+	.formInstruct.input input {
+		height: 100px;
+	}
+
     /*.formInstruct p {
 		width: 82%;
 		margin: 0 auto;
@@ -620,7 +637,7 @@ a.player_login{
 		margin: 0 0 1.5% 0;
 	}
 
-	.formQuestion form {
+	.formQuestion .form {
 		width: 100%;
 	}
 
@@ -693,7 +710,9 @@ a.player_login{
 
 	position: absolute;
 	top: 50%;
-	transform: translateY(-50%);
+	-ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
 	z-index: 100;
 }
 
@@ -729,6 +748,7 @@ a.player_login{
 /* ////////// Report Table ////////// */
 
 table {
+	width: 100%;
 	color: #fff;
 	letter-spacing: 1px;
 	margin: 30px 0 0 0;
@@ -742,6 +762,8 @@ th {
 	width: 100px;
 	color: #ffea00;
 	font-weight: inherit;
+	text-align: center!important;
+	text-transform: uppercase;
 	padding: 0 0 0 15px;
 }
 
@@ -758,6 +780,7 @@ tbody tr:nth-child(even) {
 }
 
 td {
+	text-align: center;
 	padding: 0 0 0 15px;
 }
 
@@ -833,7 +856,9 @@ td {
 
 	position: relative;
 	top: 50%;
-	transform: translateY(-50%);
+	-ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
 }
 
 .plusBlue {
@@ -845,17 +870,19 @@ td {
 
 	position: relative;
 	top: 50%;
-	transform: translateY(-50%);
+	-ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
 }
 
 .crossWhiteCont {
 	height: 20px;
 	width: 20px;
 	float: right;
-	cursor: pointer;
 	position: absolute;
 	right: 10px;
 	top: 10px;
+	margin-right: 5%;
 }
 
 
@@ -868,7 +895,9 @@ td {
 
 	position: relative;
 	top: 50%;
-	transform: translateY(-50%);
+	-ms-transform: translateY(-50%); /* IE 9 */
+    -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+    transform: translateY(-50%);
 }
 
 .playerImage {
