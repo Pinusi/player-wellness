@@ -204,7 +204,7 @@ WELLNESS.CLIENT.Main.prototype.addDashEvents = function(isTrainee)
 			//set variables
 			var user = $( this ).attr('data-user');
 			$('#playerpop').attr('data-user',user);
-			$('#playerpop').find('.popUpPlayerCircle').empty().append('<div class="playerImage "' + user + '"></div>')
+			$('#playerpop').find('.popUpPlayerCircle').empty().append('<div class="playerImage ' + user + '"></div>')
 			$('#playerpop').find('.playerInfo').empty().append('<span class="playerNo">' + $( this ).find('.playerNo').html() + '</span>' + user);
 			$('#playerpop').show();
 		});
