@@ -752,7 +752,7 @@ WELLNESS.CLIENT.Main.prototype.addReportEvents = function()
 	        	table += 			'</th>';
 	        	for( var c = 0; c < answers_by_date.questions.length; c++ )
 	        	{
-	        		table += 		'<th>' + answers_by_date.questions[c];
+	        		table += 		'<th>' + answers_by_date.questions[c].question;
 	        		table += 		'</th>';
 	        	}
 	        	table += 		'</tr>';
@@ -760,18 +760,46 @@ WELLNESS.CLIENT.Main.prototype.addReportEvents = function()
 	        	table += 	'<tbody>';
 	        	for( var key in answers_by_date )
 	        	{
-	        		var answer = answers_by_date[key];
+	        		var answer = answers_by_date[key].answers;
 	        		if(key != 'questions')
 	        		{
 	        			table += '<tr>';
 	        			table += 	'<td class="name"><div class="playerInfo">';
-	        			table += 		'<span class="playerNo">' + key.substr(0, key.indexOf("-")-1) + '</span>';
-	        			table += 		'<span>' + key.substr(key.indexOf("-")+1) + '</span>';
+	        			if(answers_by_date[key].role == "g_k")
+	        			{
+	        				table += 		'<span class="playerNo gk">' + answers_by_date[key].number + '</span>';	
+	        			}
+	        			else
+	        			{
+	        				table += 		'<span class="playerNo">' + answers_by_date[key].number + '</span>';
+	        			}
+	        			table += 		'<span>' + answers_by_date[key].name + '</span>';
 	        			table += 	'</div></td>';
 	        			for( var d = 0; d < answer.length; d++ )
 	        			{
-	        				table += '<td>' + answer[d];
-	        				table += '</td>';
+	        				if(answer[d].scale == "1")
+	        				{
+	        					table += '<td>';
+	        						if(answer[d].specific)
+	        						{
+	        							table += '<span class="neg">' + answer[d].general + "(";
+	        							for (var key in answer[d].specific) {
+	        								table += key + ": " + answer[d].specific[key] + ",";
+	        							};
+	        							table += ')</span>';
+	        						}
+	        						else
+	        						{
+	        							table += '<span class="neg">' + answer[d].general + '</span>';
+	        						}
+	        						
+	        					table += '</td>';
+	        				}
+	        				else
+	        				{
+	        					table += '<td>' + answer[d].general;
+	        					table += '</td>';
+	        				}
 	        			}
 	        			table += '</tr>';
 	        		}
