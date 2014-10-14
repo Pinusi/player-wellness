@@ -611,6 +611,12 @@ WELLNESS.CLIENT.Main.prototype.addEditEvents = function()
 		});
 	});
 
+	//Question scale
+	//STRUCTURE: <a class="posOrNegCont"><div class="posOrNeg posneg_topick neg"></div></a>
+	$(".posOrNegCont").on("click", function(){
+		$(this).find(".posOrNeg").toggleClass("neg");
+	});
+
 	//save and send
 	$('#savequestions').on('click',function(){
 		//get the new question list
@@ -629,10 +635,22 @@ WELLNESS.CLIENT.Main.prototype.addEditEvents = function()
 					case 'tap':
 						that.data[q_id].txt = $(this).find('.question_topick').val();
 						var new_answers = [];
+						var new_scale = [];
 						$( this ).find('.options_topick').each(function(){
 							new_answers.push($(this).val());
 						});
 						that.data[q_id].answers = new_answers;
+						$( this ).find('.posneg_topick').each(function(){
+							if($( this ).hasClass('neg'))
+							{
+								new_scale.push(1);
+							}
+							else
+							{
+								new_scale.push(0);
+							}
+						});
+						that.data[q_id].scale = new_scale;
 						break;
 					//case tappop TBD
 				}
@@ -651,14 +669,26 @@ WELLNESS.CLIENT.Main.prototype.addEditEvents = function()
 						break;
 					case 'tap':
 						var brand_new_answers = [];
+						var brand_new_scale = [];
 						$( this ).find('.options_topick').each(function(){
 							brand_new_answers.push($(this).val());
+						});
+						$( this ).find('.posneg_topick').each(function(){
+							if($( this ).hasClass('neg'))
+							{
+								new_scale.push(1);
+							}
+							else
+							{
+								new_scale.push(0);
+							}
 						});
 						that.data[q_id] = {
 							txt: $(this).find('.question_topick').val(),
 					        type: "tap",
 					        answers: brand_new_answers,
-					        on: "true"
+					        on: "true",
+					        scale: brand_new_scale
 						};
 						break;
 				}
