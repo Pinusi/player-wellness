@@ -32,7 +32,7 @@ a {
 	background-color: #272a2d;
 	padding: 30px 15px 30px 15px;
 	overflow: scroll;
-	background-image: url('../imgs/bkg.jpg');
+	background-image: url('../imgs/bkg.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -760,7 +760,7 @@ th {
 }
 
 tr {
-	height: 75px;
+	height: 60px;
 }
 
 table .name {
@@ -775,11 +775,11 @@ td {
 	text-align: center;
 }
 
-td span.neg {
-	padding: 12px;
+td.neg {
 	border-radius: 10px;
 	background-color: #b93939;
 	box-shadow: 0 3px 0 rgba(0,0,0,.25);
+	padding: 10px;
 }
 
 
@@ -1022,4 +1022,10 @@ td span.neg {
 }
 .walker {
 	background-image: url('../imgs/walker_72dpi.png');
+}
+.fazio {
+	background-image: url('../imgs/fazio_72dpi.png');
+}
+.stambouli {
+	background-image: url('../imgs/stambouli_72dpi.png');
 }
