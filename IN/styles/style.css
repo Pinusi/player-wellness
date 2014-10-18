@@ -41,7 +41,7 @@ a {
 }
 
 /* iPads (portrait and landscape) */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+@media only screen and (max-device-width : 1024px) {
 	.content {
 		background-image: url('../imgs/bkg_tab.png');
 	}
@@ -334,7 +334,7 @@ a.dashBtn{
 	text-align: center;
 }
 
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:750px) {
 
 	.dashBtnCont {
 		width: 100%;
@@ -612,7 +612,7 @@ a.player_login{
 	padding: 26px 0 0 0;
 }
 
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:750px) {
 
 	.formInstruct {
 		width: 100%;
