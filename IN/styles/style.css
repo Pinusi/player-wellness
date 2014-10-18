@@ -269,7 +269,7 @@ a {
 	margin: 0 0 5px 0;
 }
 
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:750px) {
 
 	.siteCont {
 		width: 100%;
@@ -752,8 +752,8 @@ table {
 	letter-spacing: 1px;
 	margin: 30px 0 0 0;
 
-	border-spacing: 5px 10px;
-	border-collapse: separate;
+	border-spacing: 5px 10px!important;
+	border-collapse: separate!important;
 }
 
 table .playerInfo {
