@@ -607,6 +607,12 @@ WELLNESS.CLIENT.Main.prototype.addEditEvents = function()
 			{
 				$( this ).parents('.formBtnCont').remove();
 			}
+			$( this ).parents('.formBtnCont').prev().find('.crossWhite').on('click',function(){
+				$( this ).parents('.formBtnCont').remove();
+			});
+			$( this ).parents('.formBtnCont').prev().find(".posOrNegCont").on("click", function(){
+				$(this).find(".posOrNeg").toggleClass("neg");
+			});
 		});
 
 		$('.pickquestions[data-id="q_'+that.q_last+'"]').find('.crossWhite').on('click',function(){
